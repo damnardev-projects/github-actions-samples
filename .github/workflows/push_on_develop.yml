@@ -1,3 +1,5 @@
+# gh act push -W .github/workflows/push_on_develop.yml
+
 name: Push On Develop Sample
 
 on:

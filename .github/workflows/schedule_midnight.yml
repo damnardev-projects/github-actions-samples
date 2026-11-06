@@ -1,3 +1,5 @@
+# gh act schedule -W .github/workflows/schedule_midnight.yml
+
 name: Schedule Midnight Sample
 
 on:

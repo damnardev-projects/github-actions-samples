@@ -1,3 +1,5 @@
+# gh act pull_request -W .github/workflows/pull_request_from_develop.yml
+
 name: Pull Request From Develop Sample
 
 on:
