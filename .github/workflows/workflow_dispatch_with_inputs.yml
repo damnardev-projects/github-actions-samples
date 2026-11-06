@@ -1,0 +1,68 @@
+# gh act workflow_dispatch --input string_sample='x"; ls; echo "' -W .github/workflows/workflow_dispatch_with_inputs.yml
+
+name: Workflow Dispatch With Inputs Sample
+
+on:
+  # Déclenchement manuel du workflow depuis l'interface GitHub.
+  workflow_dispatch:
+    # On déclare les inputs du workflow.
+    inputs:
+      string_sample:
+        description: "A string sample"
+        type: string
+        required: true
+      number_sample:
+        description: "A number sample"
+        type: number
+        required: false
+        default: 0
+      boolean_sample:
+        description: "A boolean sample"
+        type: boolean
+        required: false
+        default: false
+      choice_sample:
+        description: "A choice sample"
+        type: choice
+        required: false
+        default: "option 1"
+        options:
+          - option 1
+          - option 2
+          - option 3
+
+jobs:
+  # Déclaration du job sample. Vous pouvez renseigner le nom que vous souhaitez.
+  sample:
+    runs-on: ubuntu-latest
+
+    # Permissions en lecture seule pour actions et contents.
+    permissions:
+      actions: read
+      contents: read
+
+    # Liste des étapes du workflow.
+    steps:
+      # Checkout du dépôt pour accéder aux fichiers du projet.
+      # Le code de cette action est défini dans le dépôt https://github.com/actions/checkout
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+
+      # En utilisant la syntaxe ${{ inputs.<input_name> }}, vous pouvez accéder aux valeurs des inputs.
+      - name: Print inputs
+        # Toujours utiliser les environnements pour passer les inputs aux scripts afin d'éviter les injections.
+        env:
+          STRING_SAMPLE: ${{ inputs.string_sample }}
+          NUMBER_SAMPLE: ${{ inputs.number_sample }}
+          BOOLEAN_SAMPLE: ${{ inputs.boolean_sample }}
+          CHOICE_SAMPLE: ${{ inputs.choice_sample }}
+        run: |
+          echo "String sample: $STRING_SAMPLE"
+          echo "Number sample: $NUMBER_SAMPLE"
+          echo "Boolean sample: $BOOLEAN_SAMPLE"
+          echo "Choice sample: $CHOICE_SAMPLE"
+
+      # Un exemple simple de l'injection de commande via les inputs.
+      - name: Input injection
+        run: |
+          echo "String sample: ${{ inputs.string_sample }}"
