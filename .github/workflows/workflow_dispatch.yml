@@ -1,3 +1,5 @@
+# gh act workflow_dispatch -W .github/workflows/workflow_dispatch.yml
+
 name: Workflow Dispatch Sample
 
 on:
