@@ -1,27 +1,27 @@
 name: Push On Develop Sample
 
 on:
-    # Déclenchement sur un push vers la branche develop.
-    push:
-        branches:
-            - develop
+  # Déclenchement sur un push vers la branche develop.
+  push:
+    branches:
+      - develop
 
 jobs:
-    # Déclaration du job sample. Vous pouvez renseigner le nom que vous souhaitez.
-    sample:
-        runs-on: ubuntu-latest
+  # Déclaration du job sample. Vous pouvez renseigner le nom que vous souhaitez.
+  sample:
+    runs-on: ubuntu-latest
 
-        # Permissions en lecture seule pour actions et contents.
-        permissions:
-            actions: read
-            contents: read
+    # Permissions en lecture seule pour actions et contents.
+    permissions:
+      actions: read
+      contents: read
 
-        # Liste des étapes du workflow.
-        steps:
-            # Checkout du dépôt pour accéder aux fichiers du projet.
-            # Le code de cette action est défini dans le dépôt https://github.com/actions/checkout
-            - name: Checkout repository
-              uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+    # Liste des étapes du workflow.
+    steps:
+      # Checkout du dépôt pour accéder aux fichiers du projet.
+      # Le code de cette action est défini dans le dépôt https://github.com/actions/checkout
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
 
-            - name: Hello World
-              run: echo "Hello World"
+      - name: Hello World
+        run: echo "Hello World"
