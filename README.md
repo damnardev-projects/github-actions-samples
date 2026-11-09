@@ -8,11 +8,11 @@ Des commentaires sont directement présents dans les actions GitHub : voir le r�
 
 ## Tester localement
 
-Il est possible de tester les actions localement avec [act](https://github.com/nektos/act). Avant de l'installer, assurez-vous que **Docker** est installé et que son service est en cours d'exécution.
+Il est possible de tester les actions localement avec [act](https://github.com/nektos/act). Avant de l'installer, assurez-vous que Docker est installé et que son service est en cours d'exécution.
 
-Si **GitHub CLI** est installé, vous pouvez installer **act** avec la commande `gh extension install https://github.com/nektos/gh-act`, puis déclencher les workflows localement.
+Si GitHub CLI est installé, vous pouvez installer act avec la commande `gh extension install https://github.com/nektos/gh-act`, puis déclencher les workflows localement.
 
-La première fois que vous lancez **gh act**, vous devez choisir l'image Docker à installer en fonction de vos besoins.
+La première fois que vous lancez `gh act`, vous devez choisir l'image Docker à installer en fonction de vos besoins.
 
 | Commande | Description |
 |----------|-------------|
@@ -22,4 +22,4 @@ La première fois que vous lancez **gh act**, vous devez choisir l'image Docker 
 
 ## Dependabot
 
-Par défaut, le projet est configuré pour lancer **Dependabot** à 21 h afin de vérifier les mises à jour des GitHub Actions.
+Par défaut, le projet est configuré pour lancer Dependabot à 21 h afin de vérifier les mises à jour des GitHub Actions.
